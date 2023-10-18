@@ -3,28 +3,28 @@
 Navigation
 
 1. [CONCEPTS](#concepts)
-   - [Call Stack](#call-stack)
-   - [Parallel Assignment](#parallel-assignment)
-   - [Pass-by-Reference](#pass-by-reference)
-   - [Pass-by-Value](#pass-by-value)
-   - [Short Circuting](#short-circuiting)
-   - [Variables as Pointers](#variables-as-pointers)
-   - [Variable Scope](#variable-scope)
-   - [Variable Shadowing](#variable-shadowing)
+  - [Call Stack](#call-stack)
+  - [Parallel Assignment](#parallel-assignment)
+  - [Pass-by-Reference](#pass-by-reference)
+  - [Pass-by-Value](#pass-by-value)
+  - [Short Circuting](#short-circuiting)
+  - [Variables as Pointers](#variables-as-pointers)
+  - [Variable Scope](#variable-scope)
+  - [Variable Shadowing](#variable-shadowing)
 2. [OPERATIONS](#operations)
-   - [Blocks](#blocks)
-   - [Conditional Statement](#conditional-statement)
-   - [Ternary Operator](#ternary-operator)
+  - [Blocks](#blocks)
+  - [Conditional Statement](#conditional-statement)
+  - [Ternary Operator](#ternary-operator)
 3. [METHODS](#methods)
-   - [+ - * /](#integer)
-   - [#puts](#kernelputs)
-   - [#times](#integertimes)
+  - [+ - * /](#integer)
+  - [#puts](#kernelputs)
+  - [#times](#integertimes)
 4. [GENERAL LANGUAGE](#general-language)
-   - [Method Invocation](#method-invocation)
-   - [Method Calling](#method-calling)
-   - [Method Variables](#method-variables)
-   - [Method Defining](#method-defining)
-   - [Parameter Binding](#parameter-binding)
+  - [Variable Assignment](#variable-assignment)
+  - [Method Calling](#method-calling)
+  - [Method Variables](#method-variables)
+  - [Method Defining](#method-defining)
+  - [Parameter Binding](#parameter-binding)
 
 ## CONCEPTS
 
@@ -165,7 +165,8 @@ Navigation
 ### Conditional Statement ***
 
   Lines ________ employ a conditional `if..else..end` structure.
-  ...branch
+
+  ...`if`/`elsif`/`else` branch
 
 ### Ternary operator
 
@@ -195,7 +196,7 @@ Navigation
 
 ## GENERAL LANGUAGE
 
-### Method Invocation
+### Variable Assignment
 
 ```Ruby
 x = object
@@ -232,6 +233,8 @@ end
   From lines __ - __, the `____` method is defined with ____ parameter: `____`.
 
 ### Parameter Binding
+
+  The value of `____` is then bound to the method's parameter, `____`.
 
 
 
