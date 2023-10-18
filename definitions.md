@@ -1,8 +1,32 @@
 # Personal Definitions
 
+Navigation
+
+[Call Stack](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#call-stack)
+[Parallel Assignment](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#parallel-assignment)
+[Pass-by-Reference](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#pass-by-reference)
+[Pass-by-Value](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#pass-by-value)
+[Short Circuting](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#short-circuiting)
+[Variables as Pointers](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#variables-as-pointers-)
+[Variable Scope](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#variable-scope)
+[Variable Shadowing](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#variable-shadowing)
+[Blocks](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#blocks)
+[Conditional Statement](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#conditional-statement-)
+[Ternary Operator](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#ternary-operator)
+[+ - * /](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#integer-----)
+[#puts](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#kernelputs)
+[#times](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#integertimes)
+[Method Invocation](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#method-invocation)
+[Method Calling](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#method-calling)
+[Method Variables](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#method-variables)
+[Method Defining](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#method-defining)
+[Parameter Binding](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#parameter-binding)
+
 ## CONCEPTS
 
 ### Call Stack
+
+  Ruby utilizes a 'call stack' to manage the order in which method invocation takes place, adding and removing operations from the top of the stack until the program concludes.
 
 ### Parallel Assignment
 
@@ -54,6 +78,17 @@
   ```Ruby
   is_ok = true || some_method
   # If `is_ok` is evaluated `true`, `some_method` will not be invoked.
+  ```
+
+### Side Effects
+
+  Methods are said to have _side effects_ when more operations are performed than the original intent of the method invocation. While side effects can be helpful, it's best to avoid them to minimize the function that a method serves.
+
+  Example
+  ```Ruby
+  def get_number
+    puts "Enter a number:"    # Printing message to console is a side effect
+    number = gets.chomp       # Main purpose is to get a number from user
   ```
 
 ### Variables as Pointers ***
@@ -193,6 +228,8 @@ end
   From lines __ - __, the `____` method is defined with ____ parameter: `____`.
 
 ### Parameter Binding
+
+
 
 
 
