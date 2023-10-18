@@ -24,7 +24,8 @@
 
 ### Variable Scope
 
-  This example demonstrates how Ruby approaches _variable scope_. 
+  This example demonstrates how Ruby approaches _variable scope_.
+
   ... because a method contains its own, self-contained scope.
   ... A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
   ... 
