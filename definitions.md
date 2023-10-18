@@ -8,6 +8,14 @@
 
   This example demonstrates Ruby's ability to employ _parallel assignment_, allowing the program to assign values to multiple variables on a single line of code.
 
+  Example
+  ```Ruby
+  greeting, farewell = 'hello', 'goodbye'
+
+  puts greeting   # => hello
+  puts farewell   # => goodbye
+  ```
+
 ### Pass-by-Reference
 
   This example demonstrates how Ruby appears to handle mutative objects as _pass-by-reference_ when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.
@@ -15,7 +23,7 @@
   Example
   ```Ruby
   def scream(string)    # `cat` is bound to `string`
-    string.upcase!      # `upcase!` called on `string`, mutating caller`
+    string.upcase!      # `upcase!` called on `string`, mutating caller
   end
 
   cat = 'meow'          # `cat` initialized
@@ -40,9 +48,27 @@
 
 ### Short Circuiting
 
+  This example demonstrates how conditional statements in Ruby will _short-circuit_ once a condition is met, exiting the statement before all code can be executed.
+
+  Example
+  ```Ruby
+  is_ok = true || some_method
+  # If `is_ok` is evaluated `true`, `some_method` will not be invoked.
+  ```
+
 ### Variables as Pointers ***
 
-  This example demonstrates how Ruby employs its variables as _pointers_ to objects in memory.
+  This example demonstrates how Ruby employs its variables as _pointers_ to an address space in memory, rather than containing object values within themselves.
+
+  Example
+  ```Ruby
+  a = 'hello'
+  b = a
+  a = 'goodbye'
+
+  puts b    # => hello
+  # `b` is still 'pointing to' the object 'hello'; only `a` was reassigned.
+  ```
 
 ### Variable Scope
 
@@ -52,7 +78,30 @@
 
   ... A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
 
-  ... 
+  Example (method)
+  ```Ruby
+  a = 'hello'
+
+  def say
+    a = 'goodbye'
+  end
+
+  puts a    # => hello
+  # Methods have their own, self-contained scope, therefore `a` was not reassigned.
+  ```
+
+  Example (block)
+  ```Ruby
+  a = 'hello'
+
+  1.times do
+    a = 'goodbye'
+  end
+
+  puts a    # => goodbye
+  # Block inner-scope can access outer-scope, therefore `a` was reassigned.
+  ```
+
 
 ### Variable Shadowing
 
