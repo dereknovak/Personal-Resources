@@ -67,12 +67,12 @@
   a = 'goodbye'
 
   puts b    # => hello
-  # `b` is still 'pointing to' the object 'hello'; only `a` was reassigned.
+  # `b` is still 'pointing to' the object `hello`; only `a` was reassigned.
   ```
 
 ### Variable Scope
 
-  This example demonstrates how Ruby approaches _variable scope_.
+  This example demonstrates how Ruby approaches _variable scope_ in regards to ____. (blocks/methods/etc)
 
   ... because a method contains its own, self-contained scope.
 
@@ -114,11 +114,8 @@
 
   1.times do |string|   # block parameter `string` is initialized
     puts string         # `string` references the parameter first, therefore `0` is output
-  end
-  
+  end  
   ```
-
-
 
 ## OPERATIONS
 
@@ -128,7 +125,6 @@
 
 ### Conditional Statement ***
 
-  A ____- way conditional `if` statement is employed
   Lines ________ employ a conditional `if..else..end` structure.
   ...branch
 
@@ -136,8 +132,11 @@
 
   A ternary operator is employed that checks whether ________. If evaluated as `true`, ________; otherwise, ________.
 
-
-
+  Example
+  ```Ruby
+  # Returning the negative version of a number
+  num < 0 ? num : -num
+  ```
 
 ## METHODS
 
@@ -159,29 +158,37 @@
 
 ### Method Invocation
 
+```Ruby
 x = object
+```
 
   On line ____, local variable `____` is initialized and references the ____ object with the value `_____`.
 
 ### Method Calling
 
+```Ruby
 x.method(y)
+```
 
   The `____` method is called on `____` and is passed `____` as an argument.
 
 ### Method Variables
 
+```Ruby
 def a_method(x)
   x.some_method <=
 end
+```
 
   The `____` method is called on method local variable `____`.
 
 ### Method Defining
 
+```Ruby
 def a_method(x)
   "Something happens"
 end
+```
 
   From lines __ - __, the `____` method is defined with ____ parameter: `____`.
 
