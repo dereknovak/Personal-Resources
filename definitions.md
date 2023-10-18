@@ -10,11 +10,33 @@
 
 ### Pass-by-Reference
 
-  This example demonstrates how Ruby appears to handle mutative objects as _pass-by-reference_ when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.  
+  This example demonstrates how Ruby appears to handle mutative objects as _pass-by-reference_ when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.
+
+  Example
+  ```Ruby
+  def scream(string)    # `cat` is bound to `string`
+    string.upcase!      # `upcase!` called on `string`, mutating caller`
+  end
+
+  cat = 'meow'          # `cat` initialized
+  scream(cat)           # `scream` method invocation
+  puts cat              # Value of `cat` mutated, so outputs `MEOW`
+  ```
 
 ### Pass-by-Value
 
   This example demonstrates how Ruby appears to handle mutative objects as _pass-by-value_ when a non-destructive method is called on them, as it seems that a _copy_ of the original object is used and therefore it _cannot_ be mutated.
+
+  Example
+  ```Ruby
+  def say(string)       # `cat` is bound to `string`
+    string.upcase       # `upcase` called on `string`, only affects method variable
+  end
+
+  cat = 'meow'          # `cat` initialized
+  say(cat)              # `say` method invocation
+  puts cat              # Value of `cat` unchanged, so outputs `meow`
+  ```
 
 ### Short Circuiting
 
@@ -27,7 +49,9 @@
   This example demonstrates how Ruby approaches _variable scope_.
 
   ... because a method contains its own, self-contained scope.
+
   ... A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
+
   ... 
 
 ### Variable Shadowing
@@ -70,11 +94,11 @@
 
 ### Integer + - * /
 
-  The ____ method is called on ____ and passed ____ as an argument, returning the sum/difference/product/quotient value ____.
+  The `____` method is called on `____` and passed `____` as an argument, returning the sum/difference/product/quotient value `____`.
 
 ### Kernel#puts
 
-  The `puts` method is invoked and passed the value of ____ as an argument, which outputs ____ and returns nil.
+  The `puts` method is invoked and passed the value of `____` as an argument, which outputs `____` and returns nil.
 
 ### Integer#times
 
@@ -88,13 +112,13 @@
 
 x = object
 
-  On line ____, local variable `x` is initialized and references the ____ object with the value _____.
+  On line ____, local variable `____` is initialized and references the ____ object with the value `_____`.
 
 ### Method Calling
 
 x.method(y)
 
-  The ____ method is called on ____ and is passed ____ as an argument.
+  The `____` method is called on `____` and is passed `____` as an argument.
 
 ### Method Variables
 
@@ -102,7 +126,7 @@ def a_method(x)
   x.some_method <=
 end
 
-  The ____ method is called on method local variable ____.
+  The `____` method is called on method local variable `____`.
 
 ### Method Defining
 
