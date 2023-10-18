@@ -2,8 +2,8 @@
 
 Navigation
 
-[Call Stack](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#call-stack)
-[Parallel Assignment](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#parallel-assignment)
+[Call Stack](#call-stack)
+[Parallel Assignment](parallel-assignment)
 [Pass-by-Reference](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#pass-by-reference)
 [Pass-by-Value](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#pass-by-value)
 [Short Circuting](https://github.com/dereknovak/Personal-Resources/blob/main/definitions.md#short-circuiting)
