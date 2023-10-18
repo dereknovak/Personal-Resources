@@ -1,6 +1,8 @@
 # Personal Definitions
 
-Navigation
+Included are my personal definitions and examples of basic Ruby concepts used to help prepare me for the Ruby written and aural assessments.
+
+## Navigation
 
 1. [CONCEPTS](#concepts)
     - [Call Stack](#call-stack)
@@ -95,7 +97,7 @@ Navigation
     number = gets.chomp       # Main purpose is to get a number from user
   ```
 
-### Variables as Pointers ***
+### Variables as Pointers
 
   This example demonstrates how Ruby employs its variables as _pointers_ to an address space in memory, rather than containing object values within themselves.
 
@@ -202,7 +204,7 @@ Navigation
 x = object
 ```
 
-  On line ____, local variable `____` is initialized and references the ____ object with the value `_____`.
+  On line ____, local variable `____` is initialized and references a ____ object with the value `_____`.
 
 ### Method Calling
 
