@@ -18,8 +18,9 @@ Included are my personal definitions and examples of basic Ruby concepts used to
     - [Conditional Statement](#conditional-statement)
     - [Ternary Operator](#ternary-operator)
 3. [METHODS](#methods)
-    - [+ - * /](#integer)
-    - [#puts](#kernelputs)
+    - [Numeric Operators](#numeric-operators)
+    - [Printing](#printing)
+    - [Conversion Methods](#conversion-methods)
     - [#times](#integertimes)
 4. [GENERAL LANGUAGE](#general-language)
     - [Variable Assignment](#variable-assignment)
@@ -195,13 +196,117 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ## METHODS
 
-### Integer + - * /
+### Numeric Operators
 
-  The `____` method is called on `____` and passed `____` as an argument, returning the sum/difference/product/quotient value `____`.
+- Sum
 
-### Kernel#puts
+  ```Ruby
+  9 + 3
+  ```
 
-  The `puts` method is invoked and passed the value of `____` as an argument, which outputs `____` and returns nil.
+  The `+` numeric operator is called on integers `9` and `3`, returning the sum value `12`.
+
+- Difference
+
+  ```Ruby
+  9 - 3
+  ```
+
+  The `-` numeric operator is called on integers `9` and `3`, returning the difference value `6`.
+
+- Product
+
+  ```Ruby
+  9 * 3
+  ```
+
+  The `*` numeric operator is called on integers `9` and `3`, returning the product value `27`.
+
+- Quotient
+
+  ```Ruby
+  9 / 3
+  ```
+
+  The `/` numeric operator is called on integers `9` and `3`, returning the quotient value `3`.
+
+- Modulo
+
+  ```Ruby
+  9 % 3
+  ```
+
+  The `%` numeric operator is called on integers `9` and `3`, returning the modulo (remainder) value `0`.
+
+- Squared
+
+  ```Ruby
+  9**3
+  ```
+
+  The `**` numeric operator is called on the integers `9` and `3`, returning the squared value `729`.
+
+### Printing
+
+- #puts
+
+  ```Ruby
+  puts 'Hello World'
+  ```
+
+  The `puts` method is invoked and is passed a string object with the value `'Hello World'` as an argument, which outputs `Hello World` and returns `nil`.
+
+- #p
+
+  ```Ruby
+  a = `Hello World`
+  p a
+  ```
+
+  The `p` method is invoked and is passed the value of local variable `a` as an argument, which outputs and returns `'Hello World'`.
+
+### Conversion Methods
+
+- #to_s
+
+  ```Ruby
+  num = 42
+  num.to_s
+  ```
+
+  The `to_s` method is called on local variable `num`, converting its value to a string object, which returns `'42'`.
+
+- #to_i
+
+  ```Ruby
+  str = '42'
+  str.to_i
+  ```
+
+  The `to_i` method is called on local variable `str`, converting its value to an integer, which returns `42`.
+
+- #to_f
+
+  ```Ruby
+  pi = '3.14'
+  pi.to_f
+  ```
+
+  The `to_f` method is called on local variable `pi`, converting its value to a float, which returns `3.14`.
+
+- #to_sym
+
+  ```Ruby
+  animal = `dog`
+  animal.to_sym
+  ```
+
+  The `to_sym` method is called on local variable `animal`, converting its value to a symbol, which returns `:dog`
+  
+- #to_a
+
+- #to_h
+
 
 ### Integer#times
 
@@ -245,7 +350,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   ```
 
   Local variable `answer` is initialized and references a boolean object with the value `true`.
-  
+
 - Array
 
   ```Ruby
@@ -263,7 +368,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
                     dog: 'woof' }
   ```
   
-  Local variable `animal_sounds` is initialized and references a hash of key-value pairs. The symbol object `cat` is pair to a string object with the value `'meow'` and the symbol object `dog` is paired to a string object with the value `'woof'`.
+  Local variable `animal_sounds` is initialized and references a hash of key-value pairs. The symbol object `cat` is paired to a string object with the value `'meow'` and the symbol object `dog` is paired to a string object with the value `'woof'`.
 
 ### Method Calling
 
