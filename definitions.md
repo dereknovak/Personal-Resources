@@ -19,6 +19,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
     - [Ternary Operator](#ternary-operator)
 3. [METHODS](#methods)
     - [Numeric Operators](#numeric-operators)
+    - [String Operators](#string-operators)
     - [Printing](#printing)
     - [Conversion Methods](#conversion-methods)
     - [#times](#integertimes)
@@ -246,6 +247,35 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
   The `**` numeric operator is called on the integers `9` and `3`, returning the squared value `729`.
 
+### String Operators
+
+- Concatenation +
+
+  ```Ruby
+  greeting = 'hello'
+  greeting += '!'
+  ```
+
+  The `+` string operator is called on local variable `greeting` and string object `'!'`, concatenating the values and reassigning its return value `'hello!'` to `greeting`.
+
+- The Shovel <<
+
+  ```Ruby
+  greeting = 'hello'
+  greeting << '!'
+  ```
+
+  The `<<` operator is called on local variable `greeting` and is passed the string object `'!'` as an argument. `'!'` is destructively concatenated onto the value of `greeting`, which mutates the object to `'hello!'`.
+
+- Times *
+
+  ```Ruby
+  greeting = 'hello'
+  greeting *= 5
+  ```
+
+  The `*` string operator is called on local variable `greeting` and integer `5`, returning '`hellohellohellohellohello'` as a new string and reassigning it to `greeting`.
+
 ### Printing
 
 - #puts
@@ -302,7 +332,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   ```
 
   The `to_sym` method is called on local variable `animal`, converting its value to a symbol, which returns `:dog`
-  
+
 - #to_a
 
 - #to_h

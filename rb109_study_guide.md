@@ -85,7 +85,7 @@
   animal_sounds = { cat: 'meow',
                     dog: 'woof' }
   ```
-  
+
   Local variable `animal_sounds` is initialized and references a hash of key-value pairs. The symbol object `cat` is pair to a string object with the value `'meow'` and the symbol object `dog` is paired to a string object with the value `'woof'`.
 
 - Common calls
@@ -111,15 +111,6 @@
 
 ### Operator precedence
 
-### to_s
-
-### to_i
-
-### to_f
-
-### to_a
-
-### to_h
 
 ### Mutability
 
