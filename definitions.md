@@ -213,11 +213,57 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Variable Assignment
 
-```Ruby
-x = object
-```
+- String
 
-  On line ____, local variable `____` is initialized and references a ____ object with the value `_____`.
+   ```Ruby
+  str = 'Hello'
+  ```
+
+  Local variable `str` is initialized and references a string object with the value `Hello`.
+
+
+- Integer
+
+  ```Ruby
+  num = 5
+  ```
+
+  Local variable `num` is initialized and references an integer object with the value `5`.
+
+- Float
+
+  ```Ruby
+  num = 5.0
+  ```
+
+  Local variable `num` is initialized and references a float object with the value `5.0`.
+
+- Boolean
+
+  ```Ruby
+  answer = true
+  ```
+
+  Local variable `answer` is initialized and references a boolean object with the value `true`.
+  
+- Array
+
+  ```Ruby
+  numbers = [1, 2, 3]
+  ```
+
+  Local variable `numbers` is initialized and references an array of integers. The array contains 3 elements that reference the values `1`, `2`, and `3`.
+
+  Local variable `numbers` is initialized and references an array of integers with the value `[1, 2, 3]`
+
+- Hash
+
+  ```Ruby
+  animal_sounds = { cat: 'meow',
+                    dog: 'woof' }
+  ```
+  
+  Local variable `animal_sounds` is initialized and references a hash of key-value pairs. The symbol object `cat` is pair to a string object with the value `'meow'` and the symbol object `dog` is paired to a string object with the value `'woof'`.
 
 ### Method Calling
 
