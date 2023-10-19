@@ -97,6 +97,19 @@ Included are my personal definitions and examples of basic Ruby concepts used to
     number = gets.chomp       # Main purpose is to get a number from user
   ```
 
+### Truthiness
+
+  This example demonstrates how Ruby evaluates everything, except `false` and `nil`, as `true`.
+
+  Example
+  ```Ruby
+  if 5                        # This alone evaluates as `true`
+    puts `This is truthy!`    # Therefore, this branch will always be executed
+  else
+    puts `This is falsy.`
+  end
+  ```
+
 ### Variables as Pointers
 
   This example demonstrates how Ruby employs its variables as _pointers_ to an address space in memory, rather than containing object values within themselves.
