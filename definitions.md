@@ -38,7 +38,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Parallel Assignment
 
-  This example demonstrates Ruby's ability to employ _parallel assignment_, allowing the program to assign values to multiple variables on a single line of code.
+  This example demonstrates Ruby's ability to employ **parallel assignment**, allowing the program to assign values to multiple variables on a single line of code.
 
   Example
   ```Ruby
@@ -50,7 +50,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Reference
 
-  This example demonstrates how Ruby appears to handle mutative objects as _pass-by-reference_ when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.
+  This example demonstrates how Ruby appears to handle mutative objects as **pass-by-reference** when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.
 
   Example
   ```Ruby
@@ -65,7 +65,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Value
 
-  This example demonstrates how Ruby appears to handle mutative objects as _pass-by-value_ when a non-destructive method is called on them, as it seems that a _copy_ of the original object is used and therefore it _cannot_ be mutated.
+  This example demonstrates how Ruby appears to handle mutative objects as **pass-by-value** when a non-destructive method is called on them, as it seems that a _copy_ of the original object is used and therefore it _cannot_ be mutated.
 
   Example
   ```Ruby
@@ -80,7 +80,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Short Circuiting
 
-  This example demonstrates how conditional statements in Ruby will _short-circuit_ once a condition is met, exiting the statement before all code can be executed.
+  This example demonstrates how conditional statements in Ruby will **short-circuit** once a condition is met, exiting the statement before all code can be executed.
 
   Example
   ```Ruby
@@ -90,7 +90,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Side Effects
 
-  Methods are said to have _side effects_ when more operations are performed than the original intent of the method invocation. While side effects can be helpful, it's best to avoid them to minimize the function that a method serves.
+  Methods are said to have **side effects** when more operations are performed than the original intent of the method invocation. While side effects can be helpful, it's best to avoid them to minimize the function that a method serves.
 
   Example
   ```Ruby
@@ -114,7 +114,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Variables as Pointers
 
-  This example demonstrates how Ruby employs its variables as _pointers_ to an address space in memory, rather than containing object values within themselves.
+  This example demonstrates how Ruby employs its **variables as pointers** to an address space in memory, rather than containing object values within themselves.
 
   Example
   ```Ruby
@@ -128,23 +128,9 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Variable Scope
 
-  This example demonstrates how Ruby approaches _variable scope_ in regards to ____. (blocks/methods/etc)
+- Blocks
 
-  ... because a method contains its own, self-contained scope.
-
-  ... A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
-
-  Example (method)
-  ```Ruby
-  a = 'hello'
-
-  def say
-    a = 'goodbye'
-  end
-
-  puts a    # => hello
-  # Methods have their own, self-contained scope, therefore `a` was not reassigned.
-  ```
+  This example demonstrates how Ruby approaches **variable scope** in regards to blocks. A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
 
   Example (block)
   ```Ruby
@@ -158,10 +144,25 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   # Block inner-scope can access outer-scope, therefore `a` was reassigned.
   ```
 
+- Methods
+
+  This example demonstrates how Ruby approaches **variable scope** in regards to methods. A method has its own, self-contained scope, therefore it cannot access local variables initialized outside of its scope, nor the other way around.
+
+  Example
+  ```Ruby
+  a = 'hello'
+
+  def say
+    a = 'goodbye'
+  end
+
+  puts a    # => hello
+  # Methods have their own, self-contained scope, therefore `a` was not reassigned.
+  ```
 
 ### Variable Shadowing
 
-  This example demonstrates how _variable shadowing_ can prevent access to the outer scope of a block due to using the same variable names throughout a codebase. When searching for a local variable, Ruby looks within the block's scope first, then moves outward, returning the first reference it finds.
+  This example demonstrates how **variable shadowing** can prevent access to the outer scope of a block due to using the same variable names throughout a codebase. When searching for a local variable, Ruby looks within the block's scope first, then moves outward, returning the first reference it finds.
 
   Example
 
@@ -354,7 +355,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   str = 'Hello'
   ```
 
-  Local variable `str` is initialized and references a string object with the value `Hello`.
+  Local variable `str` is initialized and references a string object with the value `'Hello'`.
 
 
 - Integer
