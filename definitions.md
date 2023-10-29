@@ -50,7 +50,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Reference
 
-  This example demonstrates how Ruby appears to handle mutative objects as **pass-by-reference** when a destructive method is called on them, as it seems that a _reference_ to the original object is used and therefore it _can_ be mutated.
+  This example illustrates how Ruby appears to handle mutable objects as **pass-by-reference** when a destructive method is called on them. This behavior suggests that Ruby uses a *reference* to the original object, allowing the original object to be mutated.
 
   Example
   ```Ruby
@@ -65,7 +65,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Value
 
-  This example demonstrates how Ruby appears to handle mutative objects as **pass-by-value** when a non-destructive method is called on them, as it seems that a _copy_ of the original object is used and therefore it _cannot_ be mutated.
+  This example illustrates how Ruby appears to handle mutable objects as **pass-by-value** when a non-destructive method is called on them. This behavior suggests that Ruby uses a *copy* of the original object, preventing the original object from being mutated.
 
   Example
   ```Ruby
@@ -101,7 +101,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Truthiness
 
-  This example demonstrates how Ruby evaluates everything, except `false` and `nil`, as `true`.
+  This example illustrates how Ruby evaluates everything, except `false` and `nil`, as `true`.
 
   Example
   ```Ruby
@@ -114,7 +114,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Variables as Pointers
 
-  This example demonstrates how Ruby employs its **variables as pointers** to an address space in memory, rather than containing object values within themselves.
+  This example illustrates how Ruby employs its **variables as pointers** to an address space in memory, rather than containing object values within themselves.
 
   Example
   ```Ruby
@@ -130,7 +130,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - Blocks
 
-  This example demonstrates how Ruby approaches **variable scope** in regards to blocks. A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
+  This example illustrates how Ruby approaches **variable scope** in regards to blocks. A block establishes its own scope that can access local variables initialized outside of it, but not the other way around.
 
   Example (block)
   ```Ruby
