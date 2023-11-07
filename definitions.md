@@ -17,6 +17,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
     - [Blocks](#blocks)
     - [Conditional Statement](#conditional-statement)
     - [Ternary Operator](#ternary-operator)
+    - [Explicit Returns](#explicit-returns)
 3. [METHODS](#methods)
     - [Numeric Operators](#numeric-operators)
     - [String Operators](#string-operators)
@@ -50,7 +51,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Reference
 
-  This example illustrates how Ruby appears to handle mutable objects as **pass-by-reference** when a destructive method is called on them. This behavior suggests that Ruby uses a *reference* to the original object, allowing the original object to be mutated.
+  As illustrated from this example, Ruby appears to exhibit a **pass-by-reference** object passing strategy when passing mutable objects to destructive methods. This behavior suggests that the method uses a *reference* to the original object, allowing the original object to be mutated.
 
   Example
   ```Ruby
@@ -65,7 +66,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Pass-by-Value
 
-  This example illustrates how Ruby appears to handle mutable objects as **pass-by-value** when a non-destructive method is called on them. This behavior suggests that Ruby uses a *copy* of the original object, preventing the original object from being mutated.
+  As illustrated from this example, Ruby appears to exhibit a **pass-by-value** object passing strategy when passing mutable objects to non-destructive methods. This behavior suggests that the method uses a *copy* of the original object, preventing the original object from being mutated.
 
   Example
   ```Ruby
@@ -80,12 +81,13 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Short Circuiting
 
-  This example demonstrates how conditional statements in Ruby will **short-circuit** once a condition is met, exiting the statement before all code can be executed.
+  As illustrated from this example, **Short circuiting** occurs when a logical operator’s condition is met after the evaluation of its left operand, preventing its right operand from executing.
 
   Example
   ```Ruby
-  is_ok = true || some_method
-  # If `is_ok` is evaluated `true`, `some_method` will not be invoked.
+  puts('This string will output') && puts('This string will not output')
+  # `puts` returns `nil`, which is falsy
+  # Because `&&` requires both operands to be truthy, it short-circuits. 
   ```
 
 ### Side Effects
@@ -101,7 +103,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Truthiness
 
-  This example illustrates how Ruby evaluates everything, except `false` and `nil`, as `true`.
+  This example illustrates how every expression in Ruby evaluates as true, except for `false` and `nil`.
 
   Example
   ```Ruby
@@ -162,7 +164,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Variable Shadowing
 
-  This example demonstrates how **variable shadowing** can prevent access to the outer scope of a block due to using the same variable names throughout a codebase. When searching for a local variable, Ruby looks within the block's scope first, then moves outward, returning the first reference it finds.
+  This example illustrates how **variable shadowing** can prevent access to a local variable outside the scope of a block due to using that same variable name as its parameter. When searching for a local variable from within a block, Ruby first looks within its scope, then moves outward, returning the first reference it finds.
 
   Example
 
@@ -194,6 +196,18 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   ```Ruby
   # Returning the negative version of a number
   num < 0 ? num : -num
+  ```
+
+### Explicit returns
+
+  When an explicit `return` command is utilized, Ruby will immediately *return* its evaluated argument and *terminate* the method, preventing any further expressions from processing.
+
+  ```Ruby
+  def best_meal
+    return 'Breakfast'  # Terminates the method
+    'Lunch'             # Not evaluated
+    'Dinner'            # Not evaluated
+  end
   ```
 
 ## METHODS
