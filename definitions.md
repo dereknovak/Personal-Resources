@@ -6,6 +6,9 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 1. [CONCEPTS](#concepts)
     - [Call Stack](#call-stack)
+    - [Method Definition](#method-definition)
+    - [Method Invocation](#method-invocation)
+    - [Order of Precedence](#order-of-precedence)
     - [Parallel Assignment](#parallel-assignment)
     - [Pass-by-Reference](#pass-by-reference)
     - [Pass-by-Value](#pass-by-value)
@@ -35,7 +38,32 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Call Stack
 
-  Ruby utilizes a 'call stack' to manage the order in which method invocation takes place, adding and removing operations from the top of the stack until the program concludes.
+  Ruby utilizes a **call stack** to manage the order in which method invocation takes place, adding and removing operations from the top of the stack until the program concludes.
+
+### Method Definition
+
+  A method definition is created using the `def` keyword, followed by a series of code, then ending with `end`. A defined method can include parameters, indicated by variables enclosed within parentheses next to the method name, allowing outside information to be used within the method.
+
+### Method Invocation
+
+  A method, whether defined or included within the Ruby library, can be invoked on an object, performing some kind of action on it. When a method is invoked, it can be passed an argument, if the definition allows, which may affect what gets returned from the method invocation. While most arguments will exist within parentheses at the method's invocation, Ruby's syntactical sugar allows some method arguments to be displayed without them.
+
+### Order of Precedence
+
+  As illustrated from the example, Ruby follows an **order of precedence** when executing multiple operators within a single line of code. The order is as followed, from highest precedence to lowest:
+
+  10. Parentheses
+  9. Exponentiation
+  8. Unary + and -
+  7. Multiplication *, Division /, and Modulus %
+  6. Addition + and Subtraction -
+  5. Comparison operators: <, >, <=, >=, ==, !=
+  4. Logical AND &&
+  3. Logical OR ||
+  2. Ternary operator ? :
+  1. Assignment operators: =, +=, -=...
+
+  In general, it's best to use parentheses to avoid confusion, as someone reading your code, including yourself, may not have a strong understanding of the order.
 
 ### Parallel Assignment
 
@@ -252,7 +280,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   9 % 3
   ```
 
-  The `%` numeric operator is called on integers `9` and `3`, returning the modulo (remainder) value `0`.
+  The `%` numeric operator is called on integers `9` and `3`, returning the modulus (remainder) value `0`.
 
 - Squared
 
@@ -261,6 +289,14 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   ```
 
   The `**` numeric operator is called on the integers `9` and `3`, returning the squared value `729`.
+
+- Divmod
+
+  ```Ruby
+  9.divmod(3)
+  ```
+
+  The `divmod` method is called on the integer `9` and gets passed `3` as an argument, returning the quotient and modulus values `[3, 0]` as an array.
 
 ### String Operators
 
@@ -421,7 +457,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 x.method(y)
 ```
 
-  The `____` method is called on `____` and is passed `____` as an argument.
+  The `____` method is called on `____` and gets passed `____` as an argument.
 
 ### Method Variables
 
