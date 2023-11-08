@@ -50,18 +50,18 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Order of Precedence
 
-  As illustrated from the example, Ruby follows an **order of precedence** when executing multiple operators within a single line of code. The order is as followed, from highest precedence to lowest:
+  As illustrated from the example, Ruby follows an **order of precedence** when executing multiple operators within a single line of code. The order is as followed, from highest to lowest precedent:
 
-  10. Parentheses
-  9. Exponentiation
-  8. Unary + and -
-  7. Multiplication *, Division /, and Modulus %
-  6. Addition + and Subtraction -
-  5. Comparison operators: <, >, <=, >=, ==, !=
-  4. Logical AND &&
-  3. Logical OR ||
-  2. Ternary operator ? :
-  1. Assignment operators: =, +=, -=...
+  1. Parentheses
+  2. Exponentiation
+  3. Unary + and -
+  4. Multiplication *, Division /, and Modulus %
+  5. Addition + and Subtraction -
+  6. Comparison operators: <, >, <=, >=, ==, !=
+  7. Logical AND &&
+  8. Logical OR ||
+  9. Ternary operator ? :
+  10. Assignment operators: =, +=, -=...
 
   In general, it's best to use parentheses to avoid confusion, as someone reading your code, including yourself, may not have a strong understanding of the order.
 
