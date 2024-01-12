@@ -297,9 +297,29 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `chars`
 
+  ```ruby
+  'abc'.chars
+  ```
+
+  The `chars` method is called on `'abc'`, returning an array with each character as a string object element.
+  
+  The `chars` method is called on `'abc'`, returning the array `["a", "b", "c"]`.
+
 - `concat`
 
+  ```ruby
+  'hello'.concat(' world!')
+  ```
+
+  The destructive `concat` method is called on `'hello'`, appending `' world!'` onto it and returning the mutated object `'hello world!'`.
+
 - `downcase` / `downcase!`
+
+  ```ruby
+  'HELLO'.downcase
+  ```
+
+  The `downcase` method is called on `'HELLO'`, returning a new string `'hello'` by switching all characters to lowercase.
 
 - `freeze`
 
