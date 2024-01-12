@@ -40,6 +40,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
   Ruby utilizes a **call stack** to manage the order in which method invocation takes place, adding and removing operations from the top of the stack until the program concludes.
 
+### Deep Copy
+
 ### Method Definition
 
   A method definition is created using the `def` keyword, followed by a series of code, then ending with `end`. A defined method can include parameters, indicated by variables enclosed within parentheses next to the method name, allowing outside information to be used within the method.
@@ -107,13 +109,15 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   puts cat              # Value of `cat` unchanged, so outputs `meow`
   ```
 
+### Shallow Copy
+
 ### Short Circuiting
 
   As illustrated from this example, **Short circuiting** occurs when a logical operator’s condition is met after the evaluation of its left operand, preventing its right operand from executing.
 
   Example
   ```Ruby
-  puts('This string will output') && puts('This string will not output')
+  puts('This will output') && puts('This will not output')
   # `puts` returns `nil`, which is falsy
   # Because `&&` requires both operands to be truthy, it short-circuits. 
   ```
@@ -131,11 +135,11 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Truthiness
 
-  This example illustrates how every expression in Ruby evaluates as true, except for `false` and `nil`.
+  This example illustrates how every expression in Ruby evaluates as true, except for the boolean object `false` and `nil`.
 
   Example
   ```Ruby
-  if 5                        # This alone evaluates as `true`
+  if 'false'                  # This alone evaluates as `true`
     puts `This is truthy!`    # Therefore, this branch will always be executed
   else
     puts `This is falsy.`
@@ -164,19 +168,22 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
   Example (block)
   ```Ruby
-  a = 'hello'
+  a = 1
 
-  1.times do
-    a = 'goodbye'
+  loop do
+    a = 2
+    b = 10
   end
 
-  puts a    # => goodbye
+  puts a    # => 2
+  puts b    # => NameError
   # Block inner-scope can access outer-scope, therefore `a` was reassigned.
+  # Block outer-scope cannot access inner-scope, therefore `NameError`.
   ```
 
 - Methods
 
-  This example demonstrates how Ruby approaches **variable scope** in regards to methods. A method has its own, self-contained scope, therefore it cannot access local variables initialized outside of its scope, nor the other way around.
+  This example demonstrates how Ruby approaches **variable scope** in regards to methods. A method establishes its own, self-contained scope, therefore it cannot access local variables initialized outside of its scope, nor the other way around.
 
   Example
   ```Ruby
@@ -239,6 +246,124 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   ```
 
 ## METHODS
+
+### Iterative Methods
+
+- `each`
+
+  ```ruby
+  [1, 2, 3].each do |num|
+    num + 2
+  end  
+  ```
+
+  The `each` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. `each` will always return the calling object, so although code is executed within the block, `each` will return `[1, 2, 3]` regardless.
+
+- `map` / `map!`
+
+  ```ruby
+  [1, 2, 3].map do |num|
+    num + 2
+  end
+  ```
+
+  The `map` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. Upon each iteration of the block, the sum of the current value of `num` and `2` is returned, transforming each element to 2 more than its current value. As a result, the new array `[3, 4, 5]` is returned from `map`.
+
+- `select` / `select!`
+
+  ```ruby
+  [1, 2, 3].select do |num|
+    num > 1
+  end
+  ```
+
+  The `select` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. Upon each iteration of the block, a boolean is returned on whether or not the current value of `num` is greater than `1`. Because `2` and `3` both return `true`, and `select` returns a new array containing only the truthy elements, `[2, 3]` is returned from `select`.
+
+- `all?`
+
+  ```ruby
+  [1, 2, 3].all? do |num|
+    num > 1
+  end
+  ```
+
+  The `all?` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. Upon each iteration of the block, a boolean is returned on whether the current value of `num` is greater than `1`. Because `1` returns `false`, and `all?` only returns `true` if all elements return a truthy value, `false` is returned from `all?`.
+
+- `any?`
+
+- `include?`
+
+### String Methods
+
+- `chars`
+
+- `concat`
+
+- `downcase` / `downcase!`
+
+- `freeze`
+
+- `replace`
+
+- `reverse` / `reverse`
+
+- `size`
+
+- `slice` / `slice!`
+
+- `split`
+
+- `strip` / `strip!`
+
+- `upcase` / `upcase!`
+
+### Array Methods
+
+- `each_with_index`
+
+- `each_with_object`
+
+- `fetch`
+
+- `first`
+
+- `join`
+
+- `last`
+
+- `partition`
+
+- `pop`
+
+- `push`
+
+- `reverse` / `reverse!`
+
+- `shift`
+
+- `slice` / `slice!`
+
+- `sort` / `sort!`
+
+- `unshift`
+
+### Hash Methods
+
+- `each_key`
+
+- `each_value`
+
+- `empty?`
+
+- `key`
+
+- `key?`
+
+- `keys`
+
+- `value?`
+
+- `values`
 
 ### Numeric Operators
 
