@@ -36,19 +36,114 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ## CONCEPTS
 
+### Array
+
+  An array is a data structure made up of an ordered collection of elements. Arrays can exist within other arrays, creating a *nested array*.
+
+  ```ruby
+  my_array = ['string', true, 2, 2.5, :symbol, nil]
+
+  nested_arr = [['string', true], ['string', false]]
+  ```
+
+### Block
+
+  A block is a section of code delmited by either `do...end` or `{...}` that can be passed as an arugment to a method invocation. A block can include parameters, indicated by variables enclosed within `||`, allowing the method's caller to be used within the block.
+
+  ```ruby
+  a.some_method do |parameter|
+    "Some code..."
+  end
+
+  a.some_method { |parameter|  "Some code..." }
+  ```
+
 ### Call Stack
 
   Ruby utilizes a **call stack** to manage the order in which method invocation takes place, adding and removing operations from the top of the stack until the program concludes.
 
-### Deep Copy
+### Frozen Object
+
+  A frozen object cannot be modified. While immutable objects are always frozen, mutable objects can become frozen using the `freeze` method. It's important to note that only the frozen object is frozen; if the collection references other objects, they will not be frozen and can still be modified.
+
+  ```ruby
+  arr = ['a', 'b', 'c'].freeze
+  arr << 'd'  # => FrozenError: Can't modify a frozen array
+
+  arr[2] << 'd'
+  arr  # => ["a", "b", "cd"]
+  ```
+
+### Hash
+
+  A hash is a data structure made up of a collection of key-value pairs.
+
+  ```ruby
+  my_hash = { :key => 'value',
+						  :key2 => 'value2' }
+
+  my_hash = { key: 'value',
+						  key2: 'value2' }
+  ```
+
+### Method Argument vs Parameter
+
+  Method arguments are objects that get passed into a method invocation. These objects are then bound to the method's parameters, which are defined variables that act as placeholders of variables used within the method. Both are assigned within parentheses; however, arguments exist at the method invocation while parameters exist at the method definition.
+
+  ```ruby
+  def my_method(parameter)
+    # Some code...
+  end
+
+  my_method(argument)
+  ```
+
+### Method Chaining
+
+  Method chaining allows a method to be called on the *return value* of a previous method call while on the same line of code. It's important to note that this does not mean that muliple methods are being called on the same object; it's simply a chain of method invocation.
+
+  ```ruby
+  a.method1.method2
+
+  str = 'hello'
+  str.capitalize.reverse  # => "olleH"
+  ```
 
 ### Method Definition
 
   A method definition is created using the `def` keyword, followed by a series of code, then ending with `end`. A defined method can include parameters, indicated by variables enclosed within parentheses next to the method name, allowing outside information to be used within the method.
 
+  ```ruby
+  def my_method(parameter)
+    # Some code...
+  end
+  ```
+
 ### Method Invocation
 
   A method, whether defined or included within the Ruby library, can be invoked on an object, performing some kind of action on it. When a method is invoked, it can be passed an argument, if the definition allows, which may affect what gets returned from the method invocation. While most arguments will exist within parentheses at the method's invocation, Ruby's syntactical sugar allows some method arguments to be displayed without them.
+
+### Nested Collection
+
+  A nested collection exists when a collection appears as an element within another collection. Any collection can contain another--an array can contain a hash and vice versa.
+
+  Array
+  ```ruby
+  arr = [[1, 2], ['a', 'b'], [true, false]]
+  arr[1][0]  # => "a"
+  ```
+
+  Hash
+  ```ruby
+  hsh = { a: { a: 1, b: 2}, b: { c: 3, d: 4 } }
+  hsh[:b][:d]  # => 4
+  ```
+
+  Both
+  ```ruby
+  arr = [[1, 2], { a: 1, b: 2 }]
+  hsh = { a: [1, 2], b: { a: 1, b: 2 } }
+  ```
 
 ### Order of Precedence
 
@@ -109,7 +204,40 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   puts cat              # Value of `cat` unchanged, so outputs `meow`
   ```
 
+### PEDAC
+
+  An approach used to solve complex programming problems efficiently.
+  
+  **P** - [Understand the] Problem
+
+  **E** - Examples/Test Cases
+
+  **D** - Data Structure
+
+  **A** - Algorithm
+
+  **C** - Code
+
+### Selection vs Transformation
+
+  When iterating over a collection, a selective or transformative approach may be used. Transformation returns an altered version of all current elements, while Selection only returns the specific ones.
+
 ### Shallow Copy
+
+  A shallow copy, formed by calling the `dup` or `clone` methods on an object, creates a duplicate object that is separate from the original; however, any existing nested objects will be shared between both. As a result, changes made to the duplicate object will not affect the original, but ones made to the nested objects will.
+
+  Example
+  ```ruby
+  arr1 = ['a', 'b', 'c']
+  arr2 = arr1.dup
+  arr3 = arr1.dup
+
+  arr2.map!(&:upcase)
+  p arr1  # => ['a', 'b', 'c']
+
+  arr3.each(&:upcase!)
+  p arr1  # => ['A', 'B', 'C']
+  ```
 
 ### Short Circuiting
 
@@ -251,6 +379,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `each`
 
+  The `each` method iterates through a collection, returning the calling collection after iteration is complete.
+
   ```ruby
   [1, 2, 3].each do |num|
     num + 2
@@ -260,6 +390,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   The `each` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. `each` will always return the calling object, so although code is executed within the block, `each` will return `[1, 2, 3]` regardless.
 
 - `map` / `map!`
+
+  The `map` method iterates through a collection, returning a new array that contains transformed elements from the calling collection based upon the return value of the last line in its block.
 
   ```ruby
   [1, 2, 3].map do |num|
@@ -271,6 +403,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `select` / `select!`
 
+  The `select` method iterates through a collection, returning a new array that contains only the elements from the calling collection that evaluate as true based upon the return value of the last line of its block.
+
   ```ruby
   [1, 2, 3].select do |num|
     num > 1
@@ -280,6 +414,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   The `select` method is called on `[1, 2, 3]` and gets passed a `do...end` block as an argument, binding each element to the block's parameter `num` throughout iteration. Upon each iteration of the block, a boolean is returned on whether or not the current value of `num` is greater than `1`. Because `2` and `3` both return `true`, and `select` returns a new array containing only the truthy elements, `[2, 3]` is returned from `select`.
 
 - `all?`
+
+  The `all?` method iterates through a collection, only returning `true` if all elements evaluate as true based upon the return value of the last line of its block; otherwise, `all?` returns `false`.
 
   ```ruby
   [1, 2, 3].all? do |num|
@@ -291,11 +427,17 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `any?`
 
+  The `any?` method iterates through a collection, returning `true` if any of the elements evaluate as true based upon the return value of the last line of its block. Once a truthy return is evaluated, the iteration will short-circuit, stopping any further block iterations from executing.
+
 - `include?`
+
+  The `include?` method iterates through a collection, returning `true` if its argument value is present within the collection and `false` otherwise.
 
 ### String Methods
 
 - `chars`
+
+  The `chars` method returns an array object that contains characters within the string represented as individual elements.
 
   ```ruby
   'abc'.chars
@@ -306,6 +448,8 @@ Included are my personal definitions and examples of basic Ruby concepts used to
   The `chars` method is called on `'abc'`, returning the array `["a", "b", "c"]`.
 
 - `concat`
+
+  The `concat` method destructively appends its argument object onto the calling object.
 
   ```ruby
   'hello'.concat(' world!')
@@ -323,11 +467,38 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `freeze`
 
+  ```ruby
+  [1, 2, 3].freeze
+  ```
+
+  The `freeze` method is called on `[1, 2, 3]`, preventing the array object from begin mutated.
+
 - `replace`
 
-- `reverse` / `reverse`
+  The `replace` method destructively replaces elements within the calling object with the argumented elements.
+
+  ```ruby
+  [1, 2, 3].replace([4, 5])
+  ```
+
+  The `replace` method is called on `[1, 2, 3]`, replacing the elements with elements from the argumented array `[4, 5]`.
+
+
+- `reverse` / `reverse!`
+
+  ```ruby
+  [1, 2, 3].reverse
+  ```
+
+  The `reverse` method is called on `[1, 2, 3]`, reversing the elements and returning the new array `[3, 2, 1]`.
 
 - `size`
+
+  ```ruby
+  [1, 2, 3].size
+  ```
+
+  The `size` method is called on `[1, 2, 3]`, returning an integer representing the size of the array, which contains `3` elements.
 
 - `slice` / `slice!`
 
