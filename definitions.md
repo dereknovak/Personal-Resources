@@ -403,7 +403,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `select` / `select!`
 
-  The `select` method iterates through a collection, returning a new array that contains only the elements from the calling collection that evaluate as true based upon the return value of the last line of its block.
+  The `select` method iterates through a collection, returning a new collection that contains only the elements from the calling collection that evaluate as true based upon the return value of the last line of its block.
 
   ```ruby
   [1, 2, 3].select do |num|
