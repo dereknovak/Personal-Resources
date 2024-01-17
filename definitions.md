@@ -224,7 +224,7 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 ### Shallow Copy
 
-  A shallow copy, formed by calling the `dup` or `clone` methods on an object, creates a duplicate object that is separate from the original; however, any existing nested objects will be shared between both. As a result, changes made to the duplicate object will not affect the original, but ones made to the nested objects will.
+  A shallow copy, formed by calling the `dup` or `clone` methods on an object, is a duplicate object that is separate from the original; however, any existing nested objects will be shared between both. As a result, changes made to the duplicate object will not affect the original, but ones made to the nested objects will.
 
   Example
   ```ruby
@@ -506,55 +506,101 @@ Included are my personal definitions and examples of basic Ruby concepts used to
 
 - `strip` / `strip!`
 
+  The `strip` method returns a new string with all leading and trailing whitespace removed.
+
 - `upcase` / `upcase!`
 
 ### Array Methods
 
 - `each_with_index`
 
+  The `each_with_index` method iterates through a collection, passing both the element and its corresponding index value into the block using the block's parameters.
+
 - `each_with_object`
+
+  The `each_with_object` method iterates through a collection, returning its argument object with elements pushed inside throughout iteration of its block.
 
 - `fetch`
 
+  The `fetch` method returns an element at the index location of its argument, throwing an exception if that index value is outside of the range of the calling collection.
+
 - `first`
+
+  The `first` method returns the number of elements from the beginning of an array, specified by its argument.
 
 - `join`
 
+  The `join` method returns a string with elements of the calling array concatenated together.
+
 - `last`
+
+  The `last` method returns the number of elements from the end of an array, specified by its argument.
 
 - `partition`
 
+  The `partition` method iterates through a collection, returning a nested array with truthy and falsy elements divided based upon the return value of the last line of its block.
+
 - `pop`
+
+  The `pop` method destructively removes and returns the last element of an array.
 
 - `push`
 
+  The `push` method destructively appends its argument value to the calling array.
+
 - `reverse` / `reverse!`
+
+  The `reverse` method returns a new collection with elements sorted in reverse order.
 
 - `shift`
 
+  The `shift` method destructively removes and returns the first element of an array.
+
 - `slice` / `slice!`
+
+  The `slice` method returns a range of elements based upon its argument value.
 
 - `sort` / `sort!`
 
+  The `sort` method returns a new array with elements sorted from smallest to largest value.
+
 - `unshift`
+
+  The `unshift` method destructively prepends its argument value onto the calling array.
 
 ### Hash Methods
 
 - `each_key`
 
+  The `each_key` method iterates through the caller's keys and returns the calling hash.
+
 - `each_value`
+
+  The `each_value` method iterates through the caller's values and returns the calling hash.
 
 - `empty?`
 
+  The `empty?` method returns `true` if the calling object contains no characters or elements.
+
 - `key`
+
+  The `key` method returns the first-found key that is associated with the argument value.
 
 - `key?`
 
+  The `key?` method iterates through a hash, returning a boolean on whether or not the calling hash includes the argument key.
+
 - `keys`
+
+  The `keys` method returns an array containing all keys of the calling hash indicated as elements.
 
 - `value?`
 
+  The `value?` method iterates through a hash, returning a boolean on whether or not the calling hash includes the argument value.
+
 - `values`
+
+  The `values` method returns an array containing all values of the calling hash, indicated as elements.
 
 ### Numeric Operators
 
