@@ -849,3 +849,10 @@ end
 
 
 
+Quick Practice
+
+The `map` method is called on the nested array object `[[1, 2], [3, 4]]` and gets passed a `do...end` block as an argument, binding each subarray to the block's parameter `arr` throughout iteration. The `map` method iterates through a collection, returning a new array that contains transformed elements from the calling collection based upon the return value of the last line in its block. Upon each iteration of the block, the first element of the current subarray is output by invocation of the `puts` method, then that same element is returned from the block. This will transform the first subarray to `1` and the second to `3`, returning `[1, 3]` from `map`.
+
+The `select` method is called on the nested array object `[{ a: 'ant', b: 'elephant' }, { c: 'cat' }]` and gets passed a `do...end` block as an argument, binding each hash to the block's parameter `hash` throughout iteration. The `select` method iterates through a collection, returning a new collection that contains only the elements from the calling collection that evaluate as true based upon the return value of the last line of its block. Upon each iteration of the block, the `all?` method is called on the current hash and gets passed another `do...end` block as an argument, binding each key-value pair to the block's parameters `key` and `value`, respectively, throughout iteration. The `all?` method iterates through a collection, only returning `true` if all elements evaluate as true based upon the return value of the last line of its block; otherwise, `all?` returns `false`. Each iteration of the inner-block will check whether the first character of the current value matches the key, converted to a string.
+
+For the first hash, `:b` does not match and therefore returns false, resulting in a return of `false` from `all?`. The second hash, the only pair present returns `true`, and therefore `all?` will return `true` as well. This results in the new array `[{:c => 'cat'}]` being returned from `select`.
